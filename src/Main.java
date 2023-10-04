@@ -3,13 +3,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
         boolean keepRunning = true;
-        
+
         Cookies cookies = new Cookies();
         Get get = new Get();
         Achievements achievements = new Achievements();
 
         System.out.println("**************");
         System.out.println("Cookie clicker");
+        get.tutoiral();
 
         while (keepRunning) {
             System.out.println("**************");
@@ -17,6 +18,7 @@ public class Main {
             System.out.println("2 - Simulate");
             System.out.println("3 - Purchase");
             System.out.println("4 - Achievements");
+            System.out.println("5 - Tutoiral");
             System.out.println("10 - Exit");
             System.out.println("**************");
             get.getBalance(cookies.balance);
@@ -34,11 +36,15 @@ public class Main {
                 cookies.balance, 
                 cookies.purchasedItem, 
                 cookies.bakedACookie);
-            }
-            else if (choice == 797979) {
+            } else if (choice == 5) {
+                get.tutoiral();
+            } else if (choice == 797979) {
+                //testing purposes
                 cookies.balance = userInput.nextDouble();
             }
         }
         userInput.close();
+        get.userInput.close();
+        cookies.userInput.close();
     }
 }

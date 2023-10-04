@@ -22,6 +22,8 @@ public class Cookies {
     public void Purchase() {
 
         System.out.println("**************");
+        System.out.println("Type and enter your choice");
+        System.out.println("**************");
         System.out.println("1 - Worker         - $" + workerPrice + " - +$1/s");
         System.out.println("2 - Upgrade worker - $" + upgradeWorkerPrice + " - +$2.5/s");
         System.out.println("3 - Promotions     - $" + promotionsPrice + " - +$5/s");
