@@ -1,18 +1,30 @@
 public class Achievements {
     Cookies cookies = new Cookies();
-    public int achievedAchievements = 0, totalAchievements = 4;
-    public boolean firstOneHundred = false, 
-    firstThousand = false;
+    int achievedAchievements = 0, totalAchievements = 7;
+    boolean firstOneHundred = false, 
+    firstThousand = false,
+    firstTenThousand = false,
+    fiftyCookiesBaked = false,
+    oneHundredCookiesBaked = false;
 
-    public void getAchievements(Double balance, Boolean purchasedItem, Boolean bakedACookie) {
+    public void getAchievements(Double balance, 
+    Boolean purchasedItem, 
+    Boolean bakedACookie,
+    int CookiesBaked) {
+
         achievedAchievements = 0;
         System.out.println("**************");
         System.out.println("Achievements");
         System.out.println("**************");
+
         bakedACookie(bakedACookie);
+        fiftyCookiesBaked(CookiesBaked);
+        oneHundredCookiesBaked(CookiesBaked);
         purchasedItem(purchasedItem);
         firstOneHundred(balance);
         firstThousand(balance);
+        firstTenThousand(balance);
+
         System.out.println("\nAchieved " + achievedAchievements + "/" + totalAchievements);
     }
 
@@ -23,6 +35,40 @@ public class Achievements {
         } else {
             System.out.println("__________");
         }
+    }
+
+    public void fiftyCookiesBaked(int CookiesBaked) {
+
+        if (fiftyCookiesBaked == false) {
+            if (CookiesBaked == 50) {
+                fiftyCookiesBaked = true;
+            }
+        }
+
+        if (fiftyCookiesBaked == true) {
+            System.out.println("- Baked 50 cookies");
+            achievedAchievements += 1;
+        } else {
+            System.out.println("__________");
+        }
+
+    }
+
+    public void oneHundredCookiesBaked(int CookiesBaked) {
+
+        if (oneHundredCookiesBaked == false) {
+            if (CookiesBaked == 100) {
+                oneHundredCookiesBaked = true;
+            }
+        }
+
+        if (oneHundredCookiesBaked == true) {
+            System.out.println("- Baked 100 cookies");
+            achievedAchievements += 1;
+        } else {
+            System.out.println("__________");
+        }
+
     }
 
     public void purchasedItem(Boolean purchasedItem) {
@@ -64,5 +110,22 @@ public class Achievements {
         } else {
             System.out.println("__________");
         }
+    }
+
+    public void firstTenThousand(Double balance) {
+
+        if (firstTenThousand == false) {
+            if (balance >= 10000) {
+                firstTenThousand = true;
+            }
+        }
+
+        if (firstTenThousand == true) {
+            System.out.println("- First $10k");
+            achievedAchievements += 1;
+        } else {
+            System.out.println("__________");
+        }
+
     }
 }

@@ -9,7 +9,10 @@ public class Get {
     }
 
     public void lowBalance (double balance,String rejected, double price) {
-        System.out.println(rejected + " Not enough balance\nBalance - $" + balance + "\nCost $" + price);
+        System.out.println("Rejected - " + rejected + "\n"
+        + "Reason - Not enough balance\n"
+        + "Balance - $" + balance + "\n"
+        + "Cost - $" + price);
     }
 
     public void wrongOption (String correctOne) {
@@ -17,6 +20,12 @@ public class Get {
     }
 
     public void tutoiral() {
+
+        /* 
+        *We need to improve this,
+        *will get a user to do it
+        */
+
         int acknowledge;
 
         System.out.println("**************");
@@ -34,8 +43,9 @@ public class Get {
         System.out.println("**************");
         System.out.println("If you choose to simulate\n"
         + "you decide the amount of seconds to pass by\n"
-        + "and you will earn money every second based on\n"
-        + "your profits per second");
+        + "and you will earn money every second based\n"
+        + "on your profits per second and the amount\n"
+        + "of time you choose");
 
         System.out.println("**************");
         System.out.println("Do you understand?");

@@ -35,7 +35,8 @@ public class Main {
                 achievements.getAchievements(
                 cookies.balance, 
                 cookies.purchasedItem, 
-                cookies.bakedACookie);
+                cookies.bakedACookie,
+                cookies.timesBakedACookie);
             } else if (choice == 5) {
                 get.tutoiral();
             } else if (choice == 797979) {

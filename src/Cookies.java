@@ -6,6 +6,7 @@ public class Cookies {
 
     public boolean purchasedItem = false;
     public boolean bakedACookie = false;
+    public int timesBakedACookie = 0;
 
     double profitsPerSecond = 1;
     double balance = 0;
@@ -17,7 +18,13 @@ public class Cookies {
         grandmaPrice = 2500,
         powerplantPrice = 10000,
         waterdamPrice = 25000,
-        speedPrice = 35000;
+        speedPrice = 35000,
+        statePrice = 50000,
+        countryPrice = 100000,
+        continentPrice = 250000,
+        africaPrice = 350000,
+        russiaPrice = 400000,
+        earthPrice = 1000000;
 
     public void Purchase() {
 
@@ -31,8 +38,14 @@ public class Cookies {
         System.out.println("5 - Factory        - $" + factoryPrice + " - x1.05/s");
         System.out.println("6 - Grandma        - $" + grandmaPrice + " - x1.05/s");
         System.out.println("7 - Powerplant     - $" + powerplantPrice + " - x1.1/s");
-        System.out.println("8 - Water Dam      - $" + waterdamPrice + " - x1.2/s");
-        System.out.println("9 - Speed          - $" + speedPrice + " - x1.3/s");
+        System.out.println("8 - Water Dam      - $" + waterdamPrice + " - x1.15/s");
+        System.out.println("9 - Speed          - $" + speedPrice + " - x1.175/s");
+        System.out.println("10 - State         - $" + statePrice + " - x1.2/s");
+        System.out.println("11 - Country       - $" + countryPrice + " - x1.25/s");
+        System.out.println("12 - Continent     - $" + continentPrice + " - x1.25/s");
+        System.out.println("13 - Africa        - $" + africaPrice + " - x1.275/s");
+        System.out.println("14 - Russia        - $" + russiaPrice + " - x1.29/s");
+        System.out.println("15 - Earth         - $" + earthPrice + " - x1.3/s");
         System.out.println("**************");
         get.getBalance(balance);
         
@@ -110,7 +123,7 @@ public class Cookies {
             if (balance >= grandmaPrice) {
                 profitsPerSecond = Math.round(profitsPerSecond * 1.05);
                 balance -= grandmaPrice;
-                grandmaPrice = Math.round(grandmaPrice * 1.1);
+                grandmaPrice = Math.round(grandmaPrice * 1.25);
                 get.getBalance(balance);
                 purchasedItem = true;
             } else {
@@ -132,7 +145,7 @@ public class Cookies {
         } else if (choice == 8) {
 
             if (balance >= waterdamPrice) {
-                profitsPerSecond = Math.round(profitsPerSecond * 1.2);
+                profitsPerSecond = Math.round(profitsPerSecond * 1.15);
                 balance -= waterdamPrice;
                 waterdamPrice = Math.round(waterdamPrice * 1.25);
                 get.getBalance(balance);
@@ -144,17 +157,89 @@ public class Cookies {
         } else if (choice == 9) {
 
             if (balance >= speedPrice) {
-                profitsPerSecond = Math.round(profitsPerSecond * 1.3);
+                profitsPerSecond = Math.round(profitsPerSecond * 1.175);
                 balance -= speedPrice;
-                speedPrice = Math.round(speedPrice * 1.5);
+                speedPrice = Math.round(speedPrice * 1.25);
                 get.getBalance(balance);
                 purchasedItem = true;
             } else {
                 get.lowBalance(balance, "Speed", speedPrice);
             }
 
+        } else if (choice == 10) {
+
+            if (balance >= statePrice) {
+                profitsPerSecond = Math.round(profitsPerSecond * 1.2);
+                balance -= statePrice;
+                statePrice = Math.round(statePrice * 1.25);
+                get.getBalance(balance);
+                purchasedItem = true;
+            } else {
+                get.lowBalance(balance, "State", statePrice);
+            }
+
+        } else if (choice == 11) {
+
+            if (balance >= countryPrice) {
+                profitsPerSecond = Math.round(profitsPerSecond * 1.25);
+                balance -= countryPrice;
+                countryPrice = Math.round(countryPrice * 1.25);
+                get.getBalance(balance);
+                purchasedItem = true;
+            } else {
+                get.lowBalance(balance, "Country", countryPrice);
+            }
+
+        } else if (choice == 12) {
+            
+            if (balance >= continentPrice) {
+                profitsPerSecond = Math.round(profitsPerSecond * 1.25);
+                balance -= continentPrice;
+                continentPrice = Math.round(continentPrice * 1.25);
+                get.getBalance(balance);
+                purchasedItem = true;
+            } else {
+                get.lowBalance(balance, "Continent", continentPrice);
+            }
+
+        } else if (choice == 13) {
+
+            if (balance >= africaPrice) {
+                profitsPerSecond = Math.round(profitsPerSecond * 1.275);
+                balance -= africaPrice;
+                africaPrice = Math.round(africaPrice * 1.25);
+                get.getBalance(balance);
+                purchasedItem = true;
+            } else {
+                get.lowBalance(balance, "Africa", africaPrice);
+            }
+
+        } else if (choice == 14) {
+
+            if (balance >= russiaPrice) {
+                profitsPerSecond = Math.round(profitsPerSecond * 1.29);
+                balance -= russiaPrice;
+                russiaPrice = Math.round(russiaPrice * 1.25);
+                get.getBalance(balance);
+                purchasedItem = true;
+            } else {
+                get.lowBalance(balance, "Russia", russiaPrice);
+            }
+
+        } else if (choice == 15) {
+
+            if (balance >= earthPrice) {
+                profitsPerSecond = Math.round(profitsPerSecond * 1.3);
+                balance -= earthPrice;
+                earthPrice = Math.round(earthPrice * 1.25);
+                get.getBalance(balance);
+                purchasedItem = true;
+            } else {
+                get.lowBalance(balance, "Earth", earthPrice);
+            }
+
         } else {
-            get.wrongOption("option listed below");
+            get.wrongOption("Not an option");
         }
 
         System.out.println("**************");
@@ -181,6 +266,7 @@ public class Cookies {
                     balance += spam;
                     get.getBalance(balance);
                     bakedACookie = true;
+                    timesBakedACookie += 1;
                 }
             } catch (NumberFormatException e) {
                 get.wrongOption("number");
